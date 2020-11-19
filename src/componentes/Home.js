@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import Navbar from './Navbar';
 
 const Home = (props) => {
-
 
     if(props['guest'] === null){
         return (
@@ -11,9 +12,7 @@ const Home = (props) => {
         );
     }
     return (
-        <div className="container">
-            <div className="h1">{JSON.stringify(props['guest'])}</div>
-        </div>
+        <Navbar rol={props['guest']}/>
     );
 }
 

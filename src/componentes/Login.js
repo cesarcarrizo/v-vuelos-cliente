@@ -1,29 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import Home from './Home';
 
-
+/*
+    props:
+        usuarios: usuarios ya registrados en la bd para comparar con los que el usuario ingresa
+*/
 const Login = (props) => {
 
-
-    const [aparecer, setAparecer] = useState(true);
-    const [guest, setGuest] = useState(null);
+    //states
+    const [aparecer, setAparecer] = useState(true);//bandera que indica el flujo del renderizado si hay un match con lo que el usuario ingresa
+    const [guest, setGuest] = useState(null);//indica el usuario logueado de caso contrario es null
 
 
     const handler = () => {
-        let usuario = document.getElementById('usuario')['value'];
-        let password = document.getElementById('pwd')['value'];
+        let usuario = document.getElementById('usuario')['value'];//se toma el att value que es lo que el usuario ingresa
+        let password = document.getElementById('pwd')['value'];// igual aca
 
+        //iteramos sobre nuestros usuarios registrados
         props['usuarios'].forEach(el => {
+            // por cada uno se va aecaluando
             let [matcher0, matcher1] = [el['user_usu'], el['passwd_usu']];
+
+            // si hace match en ambos casos se procede a actualizar los estadds
             if(matcher0 === usuario && matcher1 === password){
-                setAparecer(false);
-                setGuest(el);
+                setAparecer(false);//'desasparace' el componente
+                setGuest(el);// el guest pasa a ser este mismo usuarios (el)
             }
         });
 
     }
    
-    // si no se han cara=gado los datos del API
+    // si no se han cargado los datos del API
     if(props['usuarios'] === null){
         return (
             <div className="container">

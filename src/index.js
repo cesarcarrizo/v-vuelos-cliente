@@ -1,19 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './componentes/App'
-//import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
-// const App = () => (
-//   <Router>
-//     <Switch>
-//       <Route exact path='/' component={Login} />
-//       <Route path="/home" component={Home} />
-//     </Switch>
-//   </Router>
-// )
-
-
+// Aca se renderiza el main app
 ReactDOM.render(
   <React.StrictMode>
     <App />
